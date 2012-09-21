@@ -1,6 +1,6 @@
 import unittest
 import os.path as path
-from whoislist.parser import WhoisServersListParser
+from whoislist.parser import *
 
 class WhoisServersListParserTest(unittest.TestCase):
 
@@ -16,7 +16,7 @@ class WhoisServersListParserTest(unittest.TestCase):
     def test_parseWhoisServerUrl_invalidHtmlPage_mustThrowException(self):
         htmlStringToParse = "blablabla";
         parser = WhoisServersListParser();
-        self.assertRaises(WhoisServerUrlNotFound, parser.parseWhoisServerUrl(htmlStringToParse));
+        self.assertRaises(PatternNotFoundException, parser.parseWhoisServerUrl(htmlStringToParse));
 
 if __name__ == "__main__":
     unittest.main()

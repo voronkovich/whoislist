@@ -11,4 +11,5 @@ class WhoisServersListParser:
         else:
             return "";
 
-
+class PatternNotFoundException(Exception):
+    pass;
