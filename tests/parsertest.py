@@ -16,7 +16,7 @@ class WhoisServersListParserTest(unittest.TestCase):
     def test_parseWhoisServerUrl_invalidHtmlPage_mustThrowException(self):
         htmlStringToParse = "blablabla";
         parser = WhoisServersListParser();
-        self.assertRaises(PatternNotFoundException, parser.parseWhoisServerUrl(htmlStringToParse));
+        self.assertRaises(PatternNotFoundException, parser.parseWhoisServerUrl, htmlStringToParse);
 
 if __name__ == "__main__":
     unittest.main()

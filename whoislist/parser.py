@@ -9,7 +9,7 @@ class WhoisServersListParser:
             whois = result.groups()[0].strip();
             return whois;
         else:
-            return "";
+            raise PatternNotFoundException("Whois server url not found");
 
 class PatternNotFoundException(Exception):
     pass;
