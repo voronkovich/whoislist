@@ -1,12 +1,12 @@
 import unittest
 import os.path as path
-from fixtures.mock import UrlReader
+from fixtures.mock import UrlReaderMock
 from whoislist.crawler import *
 
 class WhoisServersListCrawlerTest(unittest.TestCase):
 
     def setUp(self):
-        self.crawler = WhoisServersListCrawler();
+        self.crawler = WhoisServersListCrawler(UrlReaderMock(), {});
 
     def test_getWhoisServersList_commonUse_sholdReturnListWithWhoisServers(self):
         whoisList = self.crawler.getWhoisServersList();

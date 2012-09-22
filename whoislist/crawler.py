@@ -1,5 +1,7 @@
 class WhoisServersListCrawler:
+
     _urlReader = None;
+    _config = {};
 
     def __init__(self, urlReader, config):
         self._urlReader = urlReader;
