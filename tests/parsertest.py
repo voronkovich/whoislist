@@ -26,6 +26,17 @@ class WhoisServersListParserTest(unittest.TestCase):
         parser = WhoisServersListParser();
         self.assertRaises(PatternNotFoundException, parser.parseDomainName, htmlStringToParse);
 
+    def test_parseDomainsTable_validHtmlPage_shouldReturnListWithDomains(self):
+        htmlToParse = self.readFixtureFileContent('db.html');
+        parser = WhoisServersListParser();
+        domainsList = parser.parseDomainsTable(htmlToParse);
+        self.assertIn({ "domain" : "cc", "link" : "/domains/root/db/cc.html" }, domainsList);
+
+    def test_parseDomainName_invalidHtmlPage_shouldTrowException(self):
+        htmlToParse = "trololo";
+        parser = WhoisServersListParser();
+        self.assertRaises(PatternNotFoundException, parser.parseDomainsTable, htmlToParse);
+
     def readFixtureFileContent(self, file):
         return open(path.dirname(path.realpath(__file__)) + '/fixtures/' + file).read();
 
