@@ -1,0 +1,2 @@
+class WhoisServersListCrawler:
+    pass;
