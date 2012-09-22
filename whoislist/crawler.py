@@ -1,2 +1,4 @@
 class WhoisServersListCrawler:
-    pass;
+    
+    def start(self):
+        return [];
