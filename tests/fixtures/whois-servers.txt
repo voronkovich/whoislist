@@ -1,0 +1,2 @@
+ac: whois.nic.ac
+br: whois.registro.br
