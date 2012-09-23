@@ -7,7 +7,7 @@ from whoislist.parser import WhoisServersListParser
 class WhoisServersListCrawlerTest(unittest.TestCase):
 
     def setUp(self):
-        config = { "url" : "iana.org/domains/root/db" };
+        config = { "url" : "http://www.iana.org/domains/root/db" };
         self.crawler = WhoisServersListCrawler(UrlReaderMock(), WhoisServersListParser(), config);
 
     def test_getWhoisServersList_commonUse_sholdReturnListWithWhoisServers(self):

@@ -11,10 +11,9 @@ class WhoisServersListCrawler:
         self.parser = parser;
         self.url = config["url"];
         try:
-            self.baseUrl = self.url[:self.url.index("/")];
+            self.baseUrl = self.url[:self.url.index("/", 7)];
         except ValueError:
             self.baseUrl = self.url;
-        print self.baseUrl;
     
     def getWhoisServersList(self):
         whoisServersList = [];
@@ -30,7 +29,10 @@ class WhoisServersListCrawler:
         whoisServersList = [];
         for item in domains:
             urlToParse = self.baseUrl + "/" + item["link"];
-            domain = self.parseDomainPage(urlToParse);
+            try:
+                domain = self.parseDomainPage(urlToParse);
+            except:
+                pass;
             whoisServersList.append(domain);
         return whoisServersList;
 
@@ -40,5 +42,14 @@ class WhoisServersListCrawler:
         whois = self.parser.parseWhoisServerUrl(pageContent);
         return { "domain" : domain, "whois" : whois };
 
+import urllib2 as urllib;
+
 class UrlReader:
-    pass;
+    
+    def getPageContent(self, url):
+        urlResource = urllib.urlopen(url);
+        pageContent = urlResource.read();
+        urlResource.close();
+        return pageContent;
+            
+        
