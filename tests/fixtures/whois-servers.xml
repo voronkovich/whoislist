@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<whoisServers>
+<server zone="ac" url="whois.nic.ac" />
+<server zone="br" url="whois.registro.br" />
+</whoisServers>

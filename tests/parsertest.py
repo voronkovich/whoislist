@@ -1,8 +1,8 @@
 import unittest
-import os.path as path
+from testcase import WhoisServersListTestCase
 from whoislist.parser import *
 
-class WhoisServersListParserTest(unittest.TestCase):
+class WhoisServersListParserTest(WhoisServersListTestCase):
 
     def test_parseWhoisServerUrl_validHtmlPage_shouldReturnWhoisServerUrl(self):
         htmlStringToParse = self.readFixtureFileContent('ac.html');
@@ -36,9 +36,6 @@ class WhoisServersListParserTest(unittest.TestCase):
         htmlToParse = "trololo";
         parser = WhoisServersListParser();
         self.assertRaises(PatternNotFoundException, parser.parseDomainsTable, htmlToParse);
-
-    def readFixtureFileContent(self, file):
-        return open(path.dirname(path.realpath(__file__)) + '/fixtures/' + file).read();
 
 if __name__ == "__main__":
     unittest.main()

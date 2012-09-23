@@ -1,10 +1,10 @@
 import unittest
-import os.path as path
+from testcase import WhoisServersListTestCase
 from fixtures.mock import UrlReaderMock
 from whoislist.crawler import *
 from whoislist.parser import WhoisServersListParser
 
-class WhoisServersListCrawlerTest(unittest.TestCase):
+class WhoisServersListCrawlerTest(WhoisServersListTestCase):
 
     def setUp(self):
         config = { "url" : "http://www.iana.org/domains/root/db" };
