@@ -17,3 +17,12 @@ def saveResultsToFile(fileName, domains):
     outputFile.write('</servers>');
     outputFile.close();
     return;
+
+def saveResultsToTextFile(fileName, domains):
+    outputFile = open(fileName, "w");
+
+    for domain in domains:
+        outputFile.write(domain["domain"] + ': ' + domain["whois"] + '\n');
+        
+    outputFile.close();
+    return;
