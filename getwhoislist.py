@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from whoislist.crawler import WhoisServersListCrawler, UrlReader
 from whoislist.parser import WhoisServersListParser
 from whoislist.converter import *
